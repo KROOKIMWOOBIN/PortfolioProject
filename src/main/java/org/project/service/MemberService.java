@@ -7,6 +7,6 @@ public interface MemberService {
 
     void register(MemberRegisterDto registerDto);
 
-    void login(MemberLoginDto loginDto);
+    String login(MemberLoginDto loginDto);
 
 }

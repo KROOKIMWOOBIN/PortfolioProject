@@ -1,17 +1,22 @@
 package org.project;
 
 import org.junit.jupiter.api.Test;
+import org.project.config.SecurityConfig;
 import org.project.controller.MemberController;
 import org.project.service.MemberService;
+import org.project.service.MyUserDetailsService;
+import org.project.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @WebMvcTest(MemberController.class)
+@Import(SecurityConfig.class)
 public class MemberTests {
 
     @Autowired
@@ -20,11 +25,18 @@ public class MemberTests {
     @MockBean
     private MemberService memberService;
 
+    @MockBean
+    private MyUserDetailsService myUserDetailsService;
+
+    @MockBean
+    private JwtUtil jwtUtil;
+
     @Test
     public void 회원가입성공() throws Exception {
         String jsonContent = "{\"email\":\"test@naver.com\",\"phone\":\"010-0000-0000\",\"username\":\"테스트유저\",\"password\":\"Test12345@@\"}";
 
         mockMvc.perform(MockMvcRequestBuilders.post("/members/register")
+                        .header("Authorization", "Bearer test.jwt.token")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonContent))
                 .andExpect(MockMvcResultMatchers.status().isOk());

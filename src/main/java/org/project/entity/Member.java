@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -15,6 +16,7 @@ public class Member {
 
     @Id
     @Column
+    @Getter
     private String email;
 
     @Column
@@ -24,6 +26,7 @@ public class Member {
     private String username;
 
     @Column
+    @Getter
     private String password;
 
 }
