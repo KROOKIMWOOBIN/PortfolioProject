@@ -12,7 +12,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
   sql:
     init:
@@ -26,4 +26,4 @@ spring:
         data:
           jpa: DEBUG
   jwt:
-    secret: KIMWOOBIN
+    secret: "m38WLlIBdeRNTbmB2Qy48wVGtH9p9/O2mMZv//ZUsBzg5tQeKydtrTVsDoQ6KjX1JSk88qTz2z3yDoSv5FQ0L+ZCOpO0aEkVoK03L2yBlTknDpuq5XU3vc5DP+EmGhMC"

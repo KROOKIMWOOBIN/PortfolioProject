@@ -16,6 +16,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService{
@@ -51,7 +53,6 @@ public class MemberServiceImpl implements MemberService{
         } catch (Exception e) {
             throw new CustomException(ErrorCode.INVALID_LOGIN_CREDENTIALS);
         }
-
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
         String jwt = jwtUtil.generateToken(userDetails);
