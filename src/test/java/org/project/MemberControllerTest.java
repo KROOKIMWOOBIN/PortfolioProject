@@ -35,7 +35,7 @@ public class MemberControllerTest {
     public void 회원가입성공() throws Exception {
         String jsonContent = "{\"email\":\"test@naver.com\",\"phone\":\"010-0000-0000\",\"username\":\"테스트유저\",\"password\":\"Test12345@@\"}";
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/members/register")
+        mockMvc.perform(MockMvcRequestBuilders.post("/member/register")
                         .header("Authorization", "Bearer test.jwt.token")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonContent))
@@ -46,7 +46,7 @@ public class MemberControllerTest {
     public void 회원가입실패_공백() throws Exception {
         String invalidJson = "{ \"email\": \"\", \"phone\": \"\", \"username\": \"\", \"password\": \"\" }";
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/members/register")
+        mockMvc.perform(MockMvcRequestBuilders.post("/member/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(invalidJson))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest()) // 상태 코드 400으로 예상
@@ -61,7 +61,7 @@ public class MemberControllerTest {
     public void 회원가입실패_이메일() throws Exception {
         String jsonContent = "{\"email\":\"testnaver.com\",\"phone\":\"010-0000-0000\",\"username\":\"테스트유저\",\"password\":\"Test12345@@\"}";
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/members/register")
+        mockMvc.perform(MockMvcRequestBuilders.post("/member/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonContent))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
@@ -72,7 +72,7 @@ public class MemberControllerTest {
     public void 회원가입실패_전화번호() throws Exception {
         String jsonContent = "{\"email\":\"test@naver.com\",\"phone\":\"0100000-0000\",\"username\":\"테스트유저\",\"password\":\"Test12345@@\"}";
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/members/register")
+        mockMvc.perform(MockMvcRequestBuilders.post("/member/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonContent))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
@@ -83,7 +83,7 @@ public class MemberControllerTest {
     public void 회원가입실패_작성자() throws Exception {
         String jsonContent = "{\"email\":\"test@naver.com\",\"phone\":\"010-0000-0000\",\"username\":\"테저\",\"password\":\"Test12345@@\"}";
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/members/register")
+        mockMvc.perform(MockMvcRequestBuilders.post("/member/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonContent))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
@@ -94,7 +94,7 @@ public class MemberControllerTest {
     public void 회원가입실패_비밀번호() throws Exception {
         String jsonContent = "{\"email\":\"test@naver.com\",\"phone\":\"010-0000-0000\",\"username\":\"테스트유저\",\"password\":\"Test123@@\"}";
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/members/register")
+        mockMvc.perform(MockMvcRequestBuilders.post("/member/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonContent))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest())
