@@ -4,11 +4,14 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.project.dto.BoardNewDto;
 import org.project.dto.BoardUpdateDto;
+import org.project.dto.BoardViewDto;
+import org.project.entity.Board;
 import org.project.service.board.BoardService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -40,6 +43,11 @@ public class BoardController {
         }
         boardService.updateDto(id, boardUpdateDto);
         return ResponseEntity.ok("게시글 수정 성공");
+    }
+
+    @GetMapping("/view/{id}")
+    public ResponseEntity<BoardViewDto> getBoard(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(boardService.viewBoard(id));
     }
 
     private String getLoginUser(){

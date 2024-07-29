@@ -91,4 +91,13 @@ public class BoardControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
+    @Test
+    public void 게시글_보기() throws  Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/board/view/1")
+                .header("Authorization", "Bearer " + token)
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+
+    }
+
 }

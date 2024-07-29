@@ -37,4 +37,10 @@ public class BoardTest {
         boardService.updateDto(1L, boardUpdateDto);
     }
 
+    @Test
+    @Transactional
+    public void 게시글보기() {
+        System.out.println(boardService.viewBoard(1L));
+    }
+
 }

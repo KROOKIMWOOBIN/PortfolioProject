@@ -1,6 +1,7 @@
 package org.project.mapper;
 
 import org.project.dto.BoardNewDto;
+import org.project.dto.BoardViewDto;
 import org.project.entity.Board;
 import org.project.entity.Member;
 import org.springframework.stereotype.Component;
@@ -17,6 +18,19 @@ public class BoardMapper {
                 .content(boardNewDto.getContent())
                 .create_at(LocalDateTime.now())
                 .update_at(LocalDateTime.now())
+                .build();
+    }
+
+    public BoardViewDto toViewDto(Board board) {
+
+        LocalDateTime deadline = board.getCreate_at().plusDays(10);
+
+        return BoardViewDto.builder()
+                .email(board.getMember().getEmail())
+                .title(board.getTitle())
+                .content(board.getContent())
+                .create_at(board.getCreate_at())
+                .deadline(deadline)
                 .build();
     }
 

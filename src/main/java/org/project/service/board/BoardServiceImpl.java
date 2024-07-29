@@ -3,6 +3,7 @@ package org.project.service.board;
 import lombok.RequiredArgsConstructor;
 import org.project.dto.BoardNewDto;
 import org.project.dto.BoardUpdateDto;
+import org.project.dto.BoardViewDto;
 import org.project.entity.Board;
 import org.project.entity.Member;
 import org.project.exception.CustomException;
@@ -47,5 +48,13 @@ public class BoardServiceImpl implements BoardService {
         board.updateContent(boardUpdateDto.getContent());
         board.updateTimeToNow();
         boardRepository.save(board);
+    }
+
+    @Override
+    public BoardViewDto viewBoard(Long id) {
+        Board board = boardRepository.findById(id)
+                .orElseThrow(() -> new CustomException(ErrorCode.BOARD_NOT_FOUND_EXCEPTION));
+
+        return boardMapper.toViewDto(board);
     }
 }

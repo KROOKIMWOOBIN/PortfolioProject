@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @Builder
 @NoArgsConstructor
@@ -36,7 +37,6 @@ public class Board {
     private String content;
 
     @Column
-    @Getter
     private LocalDateTime create_at;
 
     @Column
@@ -53,5 +53,7 @@ public class Board {
     public void updateTimeToNow() {
         this.update_at = LocalDateTime.now();
     }
+
+
 
 }
