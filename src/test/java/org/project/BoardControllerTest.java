@@ -80,4 +80,15 @@ public class BoardControllerTest {
                 .andExpect(MockMvcResultMatchers.content().string(org.hamcrest.Matchers.containsString("내용은 필수 입력입니다.")));;
     }
 
+    @Test
+    public void 게시글_수정_성공() throws Exception {
+        String jsonContent = "{\"title\":\"테스트용 첫번째 게시글\",\"content\":\"수정\"}";
+
+        mockMvc.perform(MockMvcRequestBuilders.put("/board/update/1")
+                        .header("Authorization", "Bearer " + token)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonContent))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
 }
