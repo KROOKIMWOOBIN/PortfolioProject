@@ -4,7 +4,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.project.service.MyUserDetailsService;
+import org.project.service.member.MyUserDetailsService;
 import org.project.util.JwtUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,7 +1,7 @@
 package org.project.config;
 
 import org.project.filter.JwtRequestFilter;
-import org.project.service.MyUserDetailsService;
+import org.project.service.member.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

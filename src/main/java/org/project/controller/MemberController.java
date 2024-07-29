@@ -4,7 +4,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.project.dto.MemberLoginDto;
 import org.project.dto.MemberRegisterDto;
-import org.project.service.MemberService;
+import org.project.service.member.MemberService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;

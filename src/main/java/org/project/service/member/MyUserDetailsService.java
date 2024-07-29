@@ -1,4 +1,4 @@
-package org.project.service;
+package org.project.service.member;
 
 import lombok.RequiredArgsConstructor;
 import org.project.entity.Member;

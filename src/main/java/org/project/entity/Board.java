@@ -9,6 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
@@ -35,9 +36,22 @@ public class Board {
     private String content;
 
     @Column
+    @Getter
     private LocalDateTime create_at;
 
     @Column
     private LocalDateTime update_at;
+
+    public void updateTitle(String title) {
+        this.title = title;
+    }
+
+    public void updateContent(String content) {
+        this.content = content;
+    }
+
+    public void updateTimeToNow() {
+        this.update_at = LocalDateTime.now();
+    }
 
 }

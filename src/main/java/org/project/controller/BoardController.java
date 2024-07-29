@@ -3,7 +3,7 @@ package org.project.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.project.dto.BoardNewDto;
-import org.project.service.BoardService;
+import org.project.service.board.BoardService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -1,4 +1,4 @@
-package org.project.service;
+package org.project.service.member;
 
 import org.project.dto.MemberLoginDto;
 import org.project.dto.MemberRegisterDto;

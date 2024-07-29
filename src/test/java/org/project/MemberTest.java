@@ -1,11 +1,10 @@
 package org.project;
 
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
 import org.junit.jupiter.api.Test;
 import org.project.dto.MemberLoginDto;
 import org.project.dto.MemberRegisterDto;
-import org.project.service.MemberService;
+import org.project.service.member.MemberService;
 import org.project.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
