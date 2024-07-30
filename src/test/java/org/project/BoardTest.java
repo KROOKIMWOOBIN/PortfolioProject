@@ -3,6 +3,7 @@ package org.project;
 import org.junit.jupiter.api.Test;
 import org.project.dto.BoardNewDto;
 import org.project.dto.BoardUpdateDto;
+import org.project.dto.BoardViewDto;
 import org.project.entity.Board;
 import org.project.entity.Member;
 import org.project.repository.BoardRepository;
@@ -11,6 +12,8 @@ import org.project.service.board.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @SpringBootTest
 public class BoardTest {
@@ -34,13 +37,37 @@ public class BoardTest {
     @Transactional
     public void 게시글수정() {
         BoardUpdateDto boardUpdateDto = new BoardUpdateDto("게시글 업데이트 테스트", "게시글 업데이트 테스트");
-        boardService.updateDto(1L, boardUpdateDto);
+        boardService.updateDto(3L, boardUpdateDto);
     }
 
     @Test
     @Transactional
     public void 게시글보기() {
-        System.out.println(boardService.viewBoard(1L));
+        System.out.println(boardService.viewBoard(3L));
+    }
+
+    @Test
+    @Transactional
+    public void 게시글Soft삭제() {
+        boardService.softDeleteBoard(3L);
+    }
+
+    @Test
+    @Transactional
+    public void 게시글Hard삭제() {
+        boardService.hardDeleteBoard(3L);
+    }
+
+    @Test
+    @Transactional
+    public void 삭제된게시글조회() {
+        boardService.softDeleteBoard(3L);
+    }
+
+    @Test
+    @Transactional
+    public void 제목으로게시글검색() {
+        boardService.findByTitleBoard("테");
     }
 
 }

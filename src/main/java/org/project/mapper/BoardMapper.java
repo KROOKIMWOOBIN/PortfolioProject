@@ -18,6 +18,7 @@ public class BoardMapper {
                 .content(boardNewDto.getContent())
                 .create_at(LocalDateTime.now())
                 .update_at(LocalDateTime.now())
+                .deleted(false)
                 .build();
     }
 
@@ -26,6 +27,7 @@ public class BoardMapper {
         LocalDateTime deadline = board.getCreate_at().plusDays(10);
 
         return BoardViewDto.builder()
+                .id(board.getId())
                 .email(board.getMember().getEmail())
                 .title(board.getTitle())
                 .content(board.getContent())

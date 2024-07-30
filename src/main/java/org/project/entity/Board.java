@@ -42,6 +42,9 @@ public class Board {
     @Column
     private LocalDateTime update_at;
 
+    @Column
+    private boolean deleted;
+
     public void updateTitle(String title) {
         this.title = title;
     }
@@ -54,6 +57,8 @@ public class Board {
         this.update_at = LocalDateTime.now();
     }
 
-
+    public void softDelete() {
+        this.deleted = true;
+    }
 
 }

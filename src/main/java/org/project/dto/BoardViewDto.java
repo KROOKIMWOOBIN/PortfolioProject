@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class BoardViewDto {
 
+    private Long id;
+
     private String title;
 
     private String content;
