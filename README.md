@@ -48,11 +48,11 @@
 
 [](https://github.com/jinmlee/Article-project#%EA%B2%8C%EC%8B%9C%EA%B8%80-%EB%AA%A9%EB%A1%9D%EC%A1%B0%ED%9A%8C)
 
-* [ ]  생성일 기준 내림차순 오름차순 정렬
-* [ ]  title 기준 부분 검색 가능
-* [ ]  title 이 없을 경우 cratedAt 정렬 기준으로 표시
-* [ ]  deletedAt 기준 삭제된 게시글 제외
-* [ ]  테스트 코드 작성 및 통과
+* [X]  생성일 기준 내림차순 오름차순 정렬
+* [X]  title 기준 부분 검색 가능
+* [X]  title 이 없을 경우 cratedAt 정렬 기준으로 표시
+* [X]  deletedAt 기준 삭제된 게시글 제외
+* [X]  테스트 코드 작성 및 통과
 
 ## 게시글 상세보기
 
@@ -61,9 +61,9 @@
 
 ## 게시글 삭제
 
-* [ ]  Soft Delete 적용 deletedAt 사용하여 삭제처리
-* [ ]  Hard Delete 적용
-* [ ]  테스트 코드 작성 및 통과
+* [X]  Soft Delete 적용 deletedAt 사용하여 삭제처리
+* [X]  Hard Delete 적용
+* [X]  테스트 코드 작성 및 통과
 
 ## 📌 추가 기능구현
 
